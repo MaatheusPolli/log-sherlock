@@ -19,6 +19,11 @@ describe("redact", () => {
     ["email joao.silva+x@empresa.com.br", "email [EMAIL]"],
     ["Authorization: Bearer abc.def-ghi_12345", "Authorization: [SEGREDO] [TOKEN]"],
     ["Basic dXN1YXJpbzpzZW5oYTEyMw==", "Basic [TOKEN]"],
+    ["Bearer abcdefghijk123", "Bearer [TOKEN]"],
+    ["Basic configuration", "Basic configuration"],
+    ["Basic authentication failed", "Basic authentication failed"],
+    ["Bearer token expired", "Bearer token expired"],
+    ["Authorization: Bearer abcdefgh", "Authorization: [SEGREDO] [TOKEN]"],
     ["Token abc123XYZ987", "Token [TOKEN]"],
     ["Token AbcdEfghIjklMnopQrst na requisição", "Token [TOKEN] na requisição"],
     ["token expirado", "token expirado"],
@@ -46,7 +51,7 @@ describe("redact", () => {
   });
 
   it("é idempotente", () => {
-    const once = redact("senha=abc CPF 529.982.247-25 Bearer abcdefghijk");
+    const once = redact("senha=abc CPF 529.982.247-25 Bearer abcdefghijk123");
     expect(redact(once)).toBe(once);
   });
 
@@ -63,11 +68,12 @@ describe("redact", () => {
 
 describe("findSensitive", () => {
   it("detecta cada tipo e ignora texto já redigido", () => {
-    expect(findSensitive("CPF 529.982.247-25 Bearer abcdefghijk").sort()).toEqual(["CPF", "TOKEN"]);
+    expect(findSensitive("CPF 529.982.247-25 Bearer abcdefghijk123").sort()).toEqual(["CPF", "TOKEN"]);
+    expect(findSensitive("Basic configuration; Basic authentication failed")).toEqual([]);
     expect(findSensitive("cartão 1234 5678 9012 3456")).toEqual([]);
     expect(findSensitive("token expirado; token inválido; token expired")).toEqual([]);
     expect(findSensitive("Token abc123XYZ987")).toEqual(["TOKEN"]);
-    expect(findSensitive(redact("senha=x CPF 529.982.247-25 Bearer abcdefghijk postgres://u:p@h"))).toEqual([]);
+    expect(findSensitive(redact("senha=x CPF 529.982.247-25 Bearer abcdefghijk123 postgres://u:p@h"))).toEqual([]);
   });
 });
 

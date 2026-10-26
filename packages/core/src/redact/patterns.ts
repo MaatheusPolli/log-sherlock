@@ -48,9 +48,18 @@ export const PATTERNS: readonly SensitivePattern[] = [
   },
   { kind: "JWT", re: /\beyJ[\w-]{5,}\.eyJ[\w-]{5,}\.[\w-]{5,}/g },
   {
+    // "Bearer|Basic <valor>" só é credencial com a mesma regra do "Token" (dígito ou
+    // maiúsculas/minúsculas com 16+ caracteres). Assim "Basic configuration" e
+    // "Basic authentication" continuam visíveis ao diagnóstico.
     kind: "TOKEN",
-    re: /\b(Bearer|Basic)\s+[\w\-.~+/=]{8,}/gi,
+    re: /\b((?:[Bb]earer|[Bb]asic|BEARER|BASIC))\s+(?:(?=[\w\-.~+/=]*\d)[\w\-.~+/=]{8,}|(?=[\w\-.~+/=]*[a-z])(?=[\w\-.~+/=]*[A-Z])[\w\-.~+/=]{16,})/g,
     replace: (_m, scheme) => `${scheme} [TOKEN]`,
+  },
+  {
+    // Header "Authorization: Bearer|Basic <valor>": qualquer valor após o esquema é credencial.
+    // Vem antes de SEGREDO, que de outra forma trataria "Bearer" como o valor de "Authorization".
+    kind: "TOKEN",
+    re: /(?<=\bauthorization:\s*(?:bearer|basic)\s+)[\w\-.~+/=]{8,}/gi,
   },
   {
     // "Token <valor>" só é credencial se o valor tiver dígito ou mistura de
