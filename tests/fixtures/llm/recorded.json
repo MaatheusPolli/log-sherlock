@@ -1,0 +1,45 @@
+{
+  "vtex-401": {
+    "toolCall": {
+      "name": "registrar_diagnostico",
+      "input": {
+        "caso_citado": "vtex-401-token-expirado",
+        "causa_provavel": "O AppToken da VTEX usado pelo conector foi rotacionado e as chamadas de faturamento passaram a ser rejeitadas com 401.",
+        "passos_verificacao": [
+          "Conferir no Admin VTEX (Chaves de aplicação) se a AppKey usada pelo conector está ativa.",
+          "Comparar a data da última rotação do AppToken com o início dos erros no log."
+        ],
+        "correcao": "Gerar novo AppToken, atualizar no cofre de segredos do conector, reiniciar o worker e reprocessar os pedidos com falha.",
+        "confianca": "alta",
+        "motivo_sem_caso": null
+      }
+    }
+  },
+  "recusa": {
+    "toolCall": {
+      "name": "registrar_diagnostico",
+      "input": {
+        "caso_citado": null,
+        "causa_provavel": "",
+        "passos_verificacao": [],
+        "correcao": "",
+        "confianca": "baixa",
+        "motivo_sem_caso": "O candidato trata de rate limit do Mercado Livre; o erro é um 500 genérico de outra API."
+      }
+    }
+  },
+  "citacao-inventada": {
+    "toolCall": {
+      "name": "registrar_diagnostico",
+      "input": {
+        "caso_citado": "caso-que-nao-existe",
+        "causa_provavel": "x",
+        "passos_verificacao": ["y"],
+        "correcao": "z",
+        "confianca": "alta",
+        "motivo_sem_caso": null
+      }
+    }
+  },
+  "texto-livre": { "text": "Acho que é token expirado." }
+}
