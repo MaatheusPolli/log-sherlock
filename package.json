@@ -1,0 +1,29 @@
+{
+  "name": "log-sherlock",
+  "license": "SEE LICENSE IN LICENSE",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "pnpm -r build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "sherlock": "tsx apps/cli/src/index.ts",
+    "api": "pnpm --filter @log-sherlock/api dev",
+    "web": "pnpm --filter @log-sherlock/web dev",
+    "kb:sync-signatures": "tsx scripts/sync-kb-signatures.ts",
+    "bench:parse": "tsx scripts/bench-parse.ts"
+  },
+  "devDependencies": {
+    "@testcontainers/postgresql": "^12.2.0",
+    "@types/node": "^20.14.0",
+    "@types/pg": "^8.23.1",
+    "@vitest/coverage-v8": "^2.1.0",
+    "pg": "^8.23.0",
+    "testcontainers": "^12.2.0",
+    "tsx": "^4.23.15",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  },
+  "packageManager": "pnpm@9.15.9"
+}
