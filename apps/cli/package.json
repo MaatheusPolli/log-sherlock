@@ -1,0 +1,17 @@
+{
+  "name": "@log-sherlock/cli",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "sherlock": "bin/sherlock.mjs"
+  },
+  "scripts": {
+    "start": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@log-sherlock/core": "workspace:*",
+    "commander": "^15.0.0",
+    "tsx": "^4.23.15"
+  }
+}
