@@ -49,17 +49,29 @@ export class VoyageEmbedding implements EmbeddingPort {
     private readonly apiKey: string,
     private readonly model = "voyage-3",
     private readonly fetchFn: Fetch = fetch,
+    private readonly retryBaseMs = 2000,
   ) {}
 
   async embed(texts: readonly RedactedText[]): Promise<number[][]> {
     if (!texts.length) return [];
+    const res = await this.request(texts);
+    if (!res.ok) throw new Error(`Voyage respondeu HTTP ${res.status}`);
+    const json = (await res.json()) as { data: { embedding: number[]; index: number }[] };
+    return [...json.data].sort((a, b) => a.index - b.index).map((d) => d.embedding);
+  }
+
+  /** Repete em HTTP 429 (limite de taxa) com espera crescente; outros erros não são repetidos. */
+  private async request(texts: readonly RedactedText[], attempt = 0): Promise<Response> {
     const res = await this.fetchFn("https://api.voyageai.com/v1/embeddings", {
       method: "POST",
       headers: { "content-type": "application/json", authorization: `Bearer ${this.apiKey}` },
       body: JSON.stringify({ input: texts, model: this.model }),
     });
-    if (!res.ok) throw new Error(`Voyage respondeu HTTP ${res.status}`);
-    const json = (await res.json()) as { data: { embedding: number[]; index: number }[] };
-    return [...json.data].sort((a, b) => a.index - b.index).map((d) => d.embedding);
+    if (res.status !== 429 || attempt >= MAX_RETRIES) return res;
+    await sleep(this.retryBaseMs * 2 ** attempt);
+    return this.request(texts, attempt + 1);
   }
 }
+
+const MAX_RETRIES = 5;
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));

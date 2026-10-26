@@ -124,6 +124,23 @@ describe("VoyageEmbedding", () => {
     const fakeFetch = (async () => new Response("x", { status: 500 })) as unknown as typeof fetch;
     await expect(new VoyageEmbedding("k", undefined, fakeFetch).embed([redact("a")])).rejects.toThrow(/HTTP 500/);
   });
+
+  it("repete em 429 e desiste depois do limite de tentativas", async () => {
+    let calls = 0;
+    const limitedThenOk = (async () => {
+      calls++;
+      return calls < 3
+        ? new Response("slow down", { status: 429 })
+        : new Response(JSON.stringify({ data: [{ index: 0, embedding: [7] }] }));
+    }) as unknown as typeof fetch;
+    expect(await new VoyageEmbedding("k", undefined, limitedThenOk, 1).embed([redact("a")])).toEqual([[7]]);
+    expect(calls).toBe(3);
+
+    calls = 0;
+    const alwaysLimited = (async () => (calls++, new Response("x", { status: 429 }))) as unknown as typeof fetch;
+    await expect(new VoyageEmbedding("k", undefined, alwaysLimited, 1).embed([redact("a")])).rejects.toThrow(/HTTP 429/);
+    expect(calls).toBe(6);
+  });
 });
 
 describe("MemoryKnowledgeStore", () => {
