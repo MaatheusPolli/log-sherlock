@@ -1,0 +1,200 @@
+[
+  {
+    "id": "vtex-401-a",
+    "categoria": "variacao",
+    "expected": "vtex-401-token-expirado",
+    "log": "2026-10-20 10:00:01 ERROR HTTP 401 Unauthorized POST https://lojax.vtexcommercestable.com.br/api/oms/pvt/orders/1334560781-01/invoice invalid or expired app token"
+  },
+  {
+    "id": "vtex-401-b",
+    "categoria": "variacao",
+    "expected": "vtex-401-token-expirado",
+    "log": "2026-10-21 08:14:55 ERROR HTTP 401 Unauthorized POST https://lojax.vtexcommercestable.com.br/api/oms/pvt/orders/1334998812-01/invoice invalid or expired app token\n2026-10-21 08:14:56 ERROR HTTP 401 Unauthorized POST https://lojax.vtexcommercestable.com.br/api/oms/pvt/orders/1334998813-01/invoice invalid or expired app token"
+  },
+  {
+    "id": "nfe-539-a",
+    "categoria": "variacao",
+    "expected": "nfe-rejeicao-539",
+    "log": "2026-10-19 16:02:11 ERROR Rejeição 539: Duplicidade de NF-e, com diferença na Chave de Acesso (pedido 88213)"
+  },
+  {
+    "id": "nfe-539-b",
+    "categoria": "variacao",
+    "expected": "nfe-rejeicao-539",
+    "log": "2026-10-19 17:40:02 WARN Rejeição 539: Duplicidade de NF-e, com diferença na Chave de Acesso (pedido 88419)\n2026-10-19 17:40:03 WARN Rejeição 539: Duplicidade de NF-e, com diferença na Chave de Acesso (pedido 88420)"
+  },
+  {
+    "id": "meli-429-a",
+    "categoria": "variacao",
+    "expected": "meli-429-rate-limit",
+    "log": "2026-10-20 11:30:00 WARN HTTP 429 Too Many Requests GET https://api.mercadolibre.com/items/MLB3456789012 local_rate_limited"
+  },
+  {
+    "id": "shopify-422-a",
+    "categoria": "variacao",
+    "expected": "shopify-422-variant-sku",
+    "log": "2026-10-20 12:05:44 ERROR HTTP 422 Unprocessable Entity POST https://lojax.myshopify.com/admin/api/2024-01/products.json variants sku has already been taken"
+  },
+  {
+    "id": "vtex-404-a",
+    "categoria": "variacao",
+    "expected": "vtex-404-sku-inexistente",
+    "log": "2026-10-20 13:11:09 ERROR HTTP 404 Not Found PUT https://lojax.vtexcommercestable.com.br/api/logistics/pvt/inventory/skus/99123/warehouses/1_1 SKU not found"
+  },
+  {
+    "id": "erp-timeout-a",
+    "categoria": "variacao",
+    "expected": "erp-timeout-pool-conexao",
+    "log": "2026-10-20 14:22:37 ERROR System.InvalidOperationException: Timeout expired. The timeout period elapsed prior to obtaining a connection from the pool. This may have occurred because all pooled connections were in use and max pool size was reached.\n   at Integrador.Dados.Abrir() in Dados.cs:line 41"
+  },
+  {
+    "id": "delphi-av-a",
+    "categoria": "variacao",
+    "expected": "delphi-access-violation-dataset",
+    "log": "2026-10-20 15:48:19 ERROR Access violation at address 0041C3D4 in module 'Integrador.exe'. Read of address 00000000"
+  },
+  {
+    "id": "econnreset-a",
+    "categoria": "variacao",
+    "expected": "node-econnreset-gateway",
+    "log": "2026-10-20 16:05:10 ERROR Error: read ECONNRESET req 3f9c2a7e-18d4-4b2a-9d0e-5c6a7b8e9f01\n    at TLSWrap.onStreamRead (node:internal/stream_base_commons:217:20)"
+  },
+  {
+    "id": "nfe-225-a",
+    "categoria": "variacao",
+    "expected": "nfe-rejeicao-225-schema",
+    "log": "2026-10-20 09:10:00 ERROR Rejeição 225: Falha no Schema XML da NFe"
+  },
+  {
+    "id": "json-html-a",
+    "categoria": "variacao",
+    "expected": "json-parse-resposta-html",
+    "log": "2026-10-20 17:01:33 ERROR SyntaxError: Unexpected token < in JSON at position 0\n    at JSON.parse (<anonymous>)"
+  },
+  {
+    "id": "cert-a1-a",
+    "categoria": "variacao",
+    "expected": "certificado-a1-expirado",
+    "log": "2026-10-20 07:55:02 ERROR System.Security.Authentication.AuthenticationException: The remote certificate is invalid according to the validation procedure: NotTimeValid"
+  },
+  {
+    "id": "deadlock-a",
+    "categoria": "variacao",
+    "expected": "deadlock-pedido-estoque",
+    "log": "2026-10-20 18:20:14 ERROR Transaction (Process ID 58) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction."
+  },
+  {
+    "id": "bling-400-a",
+    "categoria": "variacao",
+    "expected": "bling-refresh-invalid-grant",
+    "log": "2026-10-20 06:40:00 ERROR HTTP 400 Bad Request POST https://www.bling.com.br/Api/v3/oauth/token invalid_grant Invalid refresh token"
+  },
+  {
+    "id": "frete-cep-a",
+    "categoria": "variacao",
+    "expected": "frete-cep-invalido",
+    "log": "2026-10-20 19:03:27 ERROR HTTP 400 Bad Request POST https://api.transportadora.com.br/cotacao CEP de destino inválido"
+  },
+  {
+    "id": "webhook-sig-a",
+    "categoria": "variacao",
+    "expected": "webhook-assinatura-invalida",
+    "log": "2026-10-20 20:11:48 ERROR Webhook signature verification failed for event evt_8812"
+  },
+  {
+    "id": "negativo-npe",
+    "categoria": "negativo",
+    "expected": null,
+    "log": "2026-10-20 21:00:01 ERROR NullReferenceException: Object reference not set to an instance of an object at Integrador.Pedidos.Mapper.Mapear(Pedido p) in Mapper.cs:line 88"
+  },
+  {
+    "id": "negativo-smtp",
+    "categoria": "negativo",
+    "expected": null,
+    "log": "2026-10-20 21:05:12 ERROR SMTP 550 5.1.1 mailbox unavailable, recipient rejected"
+  },
+  {
+    "id": "negativo-disco",
+    "categoria": "negativo",
+    "expected": null,
+    "log": "2026-10-20 21:09:40 ERROR ENOSPC: no space left on device, write '/var/log/app/worker.log'"
+  },
+  {
+    "id": "negativo-503",
+    "categoria": "negativo",
+    "expected": null,
+    "log": "2026-10-20 21:14:03 ERROR HTTP 503 Service Unavailable GET https://api.transportadora.com.br/rastreio/ABC123 maintenance window"
+  },
+  {
+    "id": "negativo-index",
+    "categoria": "negativo",
+    "expected": null,
+    "log": "2026-10-20 21:20:55 ERROR IndexOutOfRangeException: Index was outside the bounds of the array. at Integrador.Estoque.Atualizar(Item[] itens) in Estoque.cs:line 17"
+  },
+  {
+    "id": "parafrase-vtex-401",
+    "categoria": "parafrase",
+    "expected": "vtex-401-token-expirado",
+    "log": "2026-10-22 09:12:40 ERROR VTEX devolveu 401 no faturamento do pedido 1334560781-01, o token de aplicação expirou"
+  },
+  {
+    "id": "parafrase-meli-429",
+    "categoria": "parafrase",
+    "expected": "meli-429-rate-limit",
+    "log": "2026-10-22 10:03:18 WARN Mercado Livre bloqueou a consulta do anúncio: muitas requisições, limite local atingido"
+  },
+  {
+    "id": "parafrase-shopify-422",
+    "categoria": "parafrase",
+    "expected": "shopify-422-variant-sku",
+    "log": "2026-10-22 11:47:05 ERROR Shopify recusou o cadastro do produto: o SKU dessa variante já existe na loja"
+  },
+  {
+    "id": "parafrase-erp-timeout",
+    "categoria": "parafrase",
+    "expected": "erp-timeout-pool-conexao",
+    "log": "2026-10-22 13:25:31 ERROR Não foi possível obter conexão do pool do banco do ERP, todas as conexões estavam em uso"
+  },
+  {
+    "id": "parafrase-econnreset",
+    "categoria": "parafrase",
+    "expected": "node-econnreset-gateway",
+    "log": "2026-10-22 14:08:52 ERROR o gateway encerrou a conexão no meio da chamada à API (conexão resetada)"
+  },
+  {
+    "id": "parafrase-nfe-539",
+    "categoria": "parafrase",
+    "expected": "nfe-rejeicao-539",
+    "log": "2026-10-22 15:30:09 ERROR SEFAZ rejeitou a NF-e: já existe outra nota com este número, mas a chave de acesso é diferente"
+  },
+  {
+    "id": "parafrase-json-html",
+    "categoria": "parafrase",
+    "expected": "json-parse-resposta-html",
+    "log": "2026-10-22 16:44:20 ERROR a resposta da API veio em HTML em vez de JSON e o parse falhou"
+  },
+  {
+    "id": "parafrase-frete",
+    "categoria": "parafrase",
+    "expected": "frete-cep-invalido",
+    "log": "2026-10-22 17:12:03 ERROR a transportadora recusou a cotação porque o CEP de entrega não é válido"
+  },
+  {
+    "id": "parafrase-cert",
+    "categoria": "parafrase",
+    "expected": "certificado-a1-expirado",
+    "log": "2026-10-22 18:01:57 ERROR a conexão com a SEFAZ falhou: o certificado digital A1 está vencido"
+  },
+  {
+    "id": "negativo-ncm",
+    "categoria": "negativo",
+    "expected": null,
+    "log": "2026-10-22 19:20:14 ERROR pedido não sincronizado: produto sem NCM cadastrado no ERP"
+  },
+  {
+    "id": "negativo-relatorio",
+    "categoria": "negativo",
+    "expected": null,
+    "log": "2026-10-22 19:35:41 WARN relatório de vendas excedeu o tempo limite de 30 segundos e foi cancelado"
+  }
+]

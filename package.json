@@ -12,7 +12,8 @@
     "api": "pnpm --filter @log-sherlock/api dev",
     "web": "pnpm --filter @log-sherlock/web dev",
     "kb:sync-signatures": "tsx scripts/sync-kb-signatures.ts",
-    "bench:parse": "tsx scripts/bench-parse.ts"
+    "bench:parse": "tsx scripts/bench-parse.ts",
+    "eval": "tsx scripts/eval.ts"
   },
   "devDependencies": {
     "@testcontainers/postgresql": "^12.2.0",
