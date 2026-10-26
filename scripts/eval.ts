@@ -18,9 +18,10 @@ const ROOT = dirname(fileURLToPath(import.meta.url)) + "/..";
 const LATENCY_TARGET_MS = 8000;
 
 const items = JSON.parse(await readFile(`${ROOT}/tests/eval/dataset.json`, "utf8")) as EvalItem[];
-// Embedding local e memória: a avaliação é reprodutível e não depende de chaves de busca.
+// Com VOYAGE_API_KEY usa embedding semântico (voyage-3); sem ela, o local e offline.
 const ctx = await createContext({
   KNOWLEDGE_DIR: `${ROOT}/knowledge-base`,
+  VOYAGE_API_KEY: process.env.VOYAGE_API_KEY,
   ANTHROPIC_API_KEY: process.env.ANTHROPIC_API_KEY,
   ANTHROPIC_MODEL: process.env.ANTHROPIC_MODEL,
 });
