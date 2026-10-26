@@ -1,0 +1,6 @@
+TypeError: Cannot read properties of undefined (reading 'sku')
+    at mapItem (/app/src/mappers/order.js:18:22)
+    at Array.map (<anonymous>)
+    at syncOrders (/app/src/jobs/sync.js:77:31)
+Error: read ECONNRESET
+    at TLSWrap.onStreamRead (node:internal/stream_base_commons:217:20)

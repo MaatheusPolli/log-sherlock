@@ -1,0 +1,11 @@
+POST https://lojax.vtexcommercestable.com.br/api/oms/pvt/orders/1334560781-01/invoice HTTP/1.1
+HTTP/1.1 401 Unauthorized
+Content-Type: application/json
+X-Request-Id: 3f2504e0-4f89-11d3-9a0c-0305e82c3301
+
+{"error":{"message":"invalid or expired app token"}}
+PUT https://lojax.vtexcommercestable.com.br/api/logistics/pvt/inventory/skus/48213/warehouses/1_1 -> 404 Not Found {"message":"SKU not found"}
+HTTP/1.1 502 Bad Gateway
+Content-Type: text/html
+
+<html><head><title>502 Bad Gateway</title></head><body>nginx</body></html>

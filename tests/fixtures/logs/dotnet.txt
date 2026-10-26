@@ -1,0 +1,5 @@
+System.InvalidOperationException: Timeout expired. The timeout period elapsed prior to obtaining a connection from the pool.
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection)
+   at Integracao.Pedidos.PedidoRepository.Salvar(Pedido p) in C:\src\Integracao\PedidoRepository.cs:line 42
+System.Security.Authentication.AuthenticationException: The remote certificate is invalid according to the validation procedure: NotTimeValid
+   at System.Net.Security.SslStream.ForceAuthentication()

@@ -1,0 +1,3 @@
+Access violation at address 0040A1B2 in module 'Integrador.exe'. Read of address 00000000
+[0040A1B2] uExportaPedidos.TExportador.Exportar (Line 212, "uExportaPedidos.pas")
+[0040B3C4] uPrincipal.TfrmPrincipal.TimerTimer (Line 88, "uPrincipal.pas")

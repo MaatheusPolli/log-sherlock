@@ -1,0 +1,14 @@
+2024-05-10 13:22:01,123 [ERROR] Falha ao faturar pedido 98765 do cliente maria.souza@gmail.com CPF 529.982.247-25
+2024-05-10 13:22:02,000 [ERROR] Emitente CNPJ 11.222.333/0001-81 destinatário 11222333000181 CPF 52998224725
+2024-05-10 13:22:03,000 [ERROR] Rejeição 539 chave 3524 0511 2223 3300 0181 5500 1000 0012 3410 0001 2345
+2024-05-10 13:22:04,000 [ERROR] HTTP 401 POST https://api.x.com/v1 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.dozjgNryP4J3jVmNHl0w5N_XgL0n3I9PlFUP0THsR8U
+2024-05-10 13:22:05,000 [ERROR] X-VTEX-API-AppKey: vtexappkey-lojax-ABCDEF X-VTEX-API-AppToken: QWERTYUIOPASDFGHJKLZXCVBNM123456
+2024-05-10 13:22:06,000 [ERROR] config {"apiKey": "sk-ant-api03-abcdefghijklmnopqrstuv", "password": "Sup3rS3cr3t!", "client_secret":"cs_9f8e7d6c"}
+2024-05-10 13:22:07,000 [ERROR] conexão recusada postgres://sherlock:minhaSenha123@db.interno:5432/erp
+2024-05-10 13:22:08,000 [ERROR] pagamento recusado cartão 4111 1111 1111 1111 validade 12/29
+2024-05-10 13:22:09,000 [ERROR] AWS AKIAIOSFODNN7EXAMPLE stripe sk_live_51HxYzAbCdEfGhIjKl github ghp_abcdefghijklmnopqrstuvwxyz0123456789
+2024-05-10 13:22:10,000 [ERROR] callback?token=abc123def456&senha=hunter2 falhou
+2024-05-10 13:22:11,000 [ERROR] Basic dXN1YXJpbzpzZW5oYTEyMw== rejeitado
+-----BEGIN RSA PRIVATE KEY-----
+    MIIEowIBAAKCAQEA1234567890abcdefghijklmnopqrstuvwxyz
+    -----END RSA PRIVATE KEY-----

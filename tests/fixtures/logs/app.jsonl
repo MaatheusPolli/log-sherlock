@@ -1,0 +1,5 @@
+{"timestamp":"2024-05-10T13:22:01.123Z","level":"error","msg":"Falha ao enviar pedido","error":{"message":"Error: read ECONNRESET","stack":"Error: read ECONNRESET\n    at TLSWrap.onStreamRead (node:internal/stream_base_commons:217:20)"},"orderId":"98765"}
+{"timestamp":"2024-05-10T13:25:44.001Z","level":"warn","message":"HTTP 429 Too Many Requests","status":429,"method":"GET","url":"https://api.mercadolibre.com/items/MLB3456789012"}
+{"timestamp":"2024-05-10T13:30:00Z","level":"error","msg":"Falha ao enviar pedido","error":{"message":"Error: read ECONNRESET"},"orderId":"98766"}
+{"timestamp":"2024-05-10T13:31:00Z","level":"err
+{"ts":"2024-05-10T13:32:00Z","severity":"ERROR","error":"SyntaxError: Unexpected token < in JSON at position 0"}

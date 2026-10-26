@@ -1,0 +1,14 @@
+2024-05-10 08:00:01,000 [ERROR] HTTP 429 Too Many Requests GET https://api.mercadolibre.com/items/MLB3456789012 local_rate_limited
+2024-05-10 08:00:02,000 [ERROR] Rejeição 539: Duplicidade de NF-e, com diferença na Chave de Acesso
+2024-05-10 08:00:03,000 [ERROR] HTTP 429 Too Many Requests PUT https://api.mercadolibre.com/items/MLB3456789099/stock local_rate_limited
+2024-05-10 08:00:04,000 [ERROR] Transaction (Process ID 57) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction.
+2024-05-10 08:00:05,000 [INFO] Sincronização concluída: 120 itens
+2024-05-10 08:00:06,000 [ERROR] Rejeição 539: Duplicidade de NF-e, com diferença na Chave de Acesso [chNFe:35240511222333000181550010000012341000012345]
+2024-05-10 08:00:07,000 [ERROR] HTTP 401 Unauthorized POST https://lojax.vtexcommercestable.com.br/api/oms/pvt/orders/1334560781-01/invoice invalid or expired app token
+2024-05-10 08:00:08,000 [ERROR] Transaction (Process ID 112) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction.
+2024-05-10 08:00:09,000 [ERROR] HTTP 401 Unauthorized POST https://lojax.vtexcommercestable.com.br/api/oms/pvt/orders/1334560799-01/invoice invalid or expired app token
+2024-05-10 08:00:10,000 [ERROR] HTTP 429 Too Many Requests GET https://api.mercadolibre.com/items/MLB3456781111 local_rate_limited
+2024-05-10 08:00:11,000 [WARN] Rejeição 539: Duplicidade de NF-e, com diferença na Chave de Acesso [chNFe:35240511222333000181550010000012341000067890]
+2024-05-10 08:00:12,000 [ERROR] SyntaxError: Unexpected token < in JSON at position 0
+2024-05-10 08:00:13,000 [ERROR] HTTP 401 Unauthorized POST https://lojax.vtexcommercestable.com.br/api/oms/pvt/orders/1334560800-01/invoice invalid or expired app token
+2024-05-10 08:00:14,000 [ERROR] SyntaxError: Unexpected token < in JSON at position 0
