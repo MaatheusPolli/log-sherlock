@@ -1,0 +1,17 @@
+{
+  "vtex-401-token-expirado": "HTTP 401 Unauthorized POST https://lojax.vtexcommercestable.com.br/api/oms/pvt/orders/1334560781-01/invoice invalid or expired app token",
+  "nfe-rejeicao-539": "Rejeição 539: Duplicidade de NF-e, com diferença na Chave de Acesso",
+  "meli-429-rate-limit": "HTTP 429 Too Many Requests GET https://api.mercadolibre.com/items/MLB3456789012 local_rate_limited",
+  "shopify-422-variant-sku": "HTTP 422 Unprocessable Entity POST https://lojax.myshopify.com/admin/api/2024-01/products.json variants sku has already been taken",
+  "erp-timeout-pool-conexao": "System.InvalidOperationException: Timeout expired. The timeout period elapsed prior to obtaining a connection from the pool. This may have occurred because all pooled connections were in use and max pool size was reached.",
+  "delphi-access-violation-dataset": "Access violation at address 0040A1B2 in module 'Integrador.exe'. Read of address 00000000",
+  "node-econnreset-gateway": "Error: read ECONNRESET",
+  "nfe-rejeicao-225-schema": "Rejeição 225: Falha no Schema XML da NFe",
+  "vtex-404-sku-inexistente": "HTTP 404 Not Found PUT https://lojax.vtexcommercestable.com.br/api/logistics/pvt/inventory/skus/48213/warehouses/1_1 SKU not found",
+  "json-parse-resposta-html": "SyntaxError: Unexpected token < in JSON at position 0",
+  "certificado-a1-expirado": "System.Security.Authentication.AuthenticationException: The remote certificate is invalid according to the validation procedure: NotTimeValid",
+  "bling-refresh-invalid-grant": "HTTP 400 Bad Request POST https://www.bling.com.br/Api/v3/oauth/token invalid_grant Invalid refresh token",
+  "deadlock-pedido-estoque": "Transaction (Process ID 57) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction.",
+  "webhook-assinatura-invalida": "Webhook signature verification failed for event evt_1a2b3c4d5e",
+  "frete-cep-invalido": "HTTP 400 Bad Request POST https://api.fretex.com.br/v2/cotacao CEP de destino inválido"
+}
