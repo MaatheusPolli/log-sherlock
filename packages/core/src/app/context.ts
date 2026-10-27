@@ -1,4 +1,5 @@
 import { AnthropicLlm } from "../diagnose/anthropic.js";
+import { ClaudeCliLlm } from "../diagnose/claude-cli.js";
 import { LocalEmbedding, VoyageEmbedding } from "../knowledge/embeddings.js";
 import { indexKnowledgeBase } from "../knowledge/indexer.js";
 import { MemoryKnowledgeStore } from "../knowledge/memory-store.js";
@@ -21,6 +22,9 @@ export interface ContextEnv {
   VOYAGE_API_KEY?: string;
   ANTHROPIC_API_KEY?: string;
   ANTHROPIC_MODEL?: string;
+  /** "claude-cli" usa a assinatura da Claude Code CLI em vez da API (sem ANTHROPIC_API_KEY). */
+  LLM_PROVIDER?: string;
+  CLAUDE_CLI_MODEL?: string;
   KNOWLEDGE_DIR?: string;
 }
 
@@ -40,12 +44,16 @@ export async function createContext(env: ContextEnv = process.env): Promise<AppC
   }
   await indexKnowledgeBase(knowledgeDir, store, embeddings);
 
-  const llm = env.ANTHROPIC_API_KEY ? new AnthropicLlm({ model: env.ANTHROPIC_MODEL }) : undefined;
-  const describe = [
-    env.DATABASE_URL ? "postgres" : "memória",
-    env.VOYAGE_API_KEY ? "voyage" : "embedding local",
-    llm ? "claude" : "sem LLM",
-  ].join(" · ");
+  let llm: LlmPort | undefined;
+  let llmName = "sem LLM";
+  if (env.LLM_PROVIDER === "claude-cli") {
+    llm = new ClaudeCliLlm({ model: env.CLAUDE_CLI_MODEL });
+    llmName = "claude (CLI)";
+  } else if (env.ANTHROPIC_API_KEY) {
+    llm = new AnthropicLlm({ model: env.ANTHROPIC_MODEL });
+    llmName = "claude (API)";
+  }
+  const describe = [env.DATABASE_URL ? "postgres" : "memória", env.VOYAGE_API_KEY ? "voyage" : "embedding local", llmName].join(" · ");
   return { store, embeddings, llm, knowledgeDir, describe };
 }
 

@@ -22,6 +22,7 @@ export { cosine, tokenize } from "./cluster/similarity.js";
 export * from "./domain/diagnosis.js";
 export { diagnoseGroup, type DiagnoseDeps } from "./diagnose/diagnose.js";
 export { AnthropicLlm, type AnthropicLlmOptions } from "./diagnose/anthropic.js";
+export { ClaudeCliLlm, type ClaudeCliOptions, type ClaudeRunner } from "./diagnose/claude-cli.js";
 export { validateDiagnosis, refuse } from "./diagnose/guardrail.js";
 export { buildDiagnosisPrompt, DIAGNOSIS_TOOL } from "./diagnose/prompts/diagnose.js";
 export { SYSTEM_PROMPT } from "./diagnose/prompts/system.js";

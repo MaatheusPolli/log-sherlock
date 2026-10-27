@@ -24,6 +24,8 @@ const ctx = await createContext({
   VOYAGE_API_KEY: process.env.VOYAGE_API_KEY,
   ANTHROPIC_API_KEY: process.env.ANTHROPIC_API_KEY,
   ANTHROPIC_MODEL: process.env.ANTHROPIC_MODEL,
+  LLM_PROVIDER: process.env.LLM_PROVIDER,
+  CLAUDE_CLI_MODEL: process.env.CLAUDE_CLI_MODEL,
 });
 const withLlm = Boolean(ctx.llm);
 
