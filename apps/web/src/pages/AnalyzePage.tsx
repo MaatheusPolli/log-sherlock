@@ -2,6 +2,7 @@ import { useState } from "react";
 import { api } from "../api";
 import { GroupList } from "../components/GroupList";
 import { LogInput } from "../components/LogInput";
+import { RedactionPreview } from "../components/RedactionPreview";
 import type { AnalysisReport, KnownIssue } from "../types";
 
 export function AnalyzePage() {
@@ -37,6 +38,7 @@ export function AnalyzePage() {
   return (
     <div className="space-y-6">
       <LogInput busy={busy} onSubmit={run} />
+      <RedactionPreview />
       {error && <p className="rounded-md bg-red-50 p-3 text-sm text-red-700">{error}</p>}
       {report && (
         <section className="space-y-3">
