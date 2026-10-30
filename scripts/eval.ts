@@ -84,7 +84,7 @@ const max = sorted[sorted.length - 1]!;
 
 const lines: string[] = [];
 lines.push("# Avaliação do LogSherlock", "");
-lines.push(`Gerado em ${new Date().toISOString()} · Node ${process.version} · modelo: ${withLlm ? (process.env.ANTHROPIC_MODEL ?? "padrão do adaptador") : "sem LLM"}`, "");
+lines.push(`Gerado em ${new Date().toISOString()} · Node ${process.version} · modelo: ${withLlm ? (process.env.ANTHROPIC_MODEL ?? process.env.CLAUDE_CLI_MODEL ?? "padrão do adaptador") : "sem LLM"}`, "");
 lines.push(`Base: ${ctx.describe}. Dataset: ${rows.length} logs (${positives.length} com caso na base, ${negatives.length} sem caso).`, "");
 lines.push("## Resumo", "");
 lines.push("| Métrica | Resultado |", "| --- | --- |");
